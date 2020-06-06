@@ -1,0 +1,56 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.fragment.NewsFragment"
+   >
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+      <GridLayout
+          android:background="@drawable/search_background"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="10dp"
+          android:columnCount="2"
+          android:rowCount="2">
+
+         <EditText
+             android:imeOptions="actionDone"
+             android:maxLines="1"
+             android:background="@drawable/search_background"
+             android:layout_columnWeight="1"
+             android:id="@+id/et_query"
+             android:layout_width="wrap_content"
+             android:layout_height="60dp"
+             android:ems="10"
+             android:padding="10dp"
+             android:inputType="text"
+             android:hint="Search"
+             android:textColor="@color/grey"
+             android:textColorHint="@color/grey"/>
+
+         <Button
+             android:paddingRight="20dp"
+             android:background="@drawable/search_background"
+             android:drawableRight="@drawable/ic_search"
+             android:id="@+id/btn_search"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             />
+      </GridLayout>
+      <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/swipeRefresh">
+         <androidx.recyclerview.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/news_recy"
+             tools:listitem="@layout/news_items"/>
+
+      </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+   </LinearLayout>
+</FrameLayout>
