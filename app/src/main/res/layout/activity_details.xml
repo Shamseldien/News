@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DetailsActivity">
+    tools:context=".DetailsActivity"
+    android:layoutDirection="ltr"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:layoutDirection="ltr"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

@@ -3,6 +3,7 @@ package com.example.news;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.fragment.BusinessFragment;
@@ -27,11 +28,11 @@ public class NewsActivity extends AppCompatActivity {
         sNavigationDrawer = findViewById(R.id.drawer);
         List<MenuItem> menuItems = new ArrayList<>();
         menuItems.add(new MenuItem("Latest News", R.drawable.news_bg));
-        menuItems.add(new MenuItem("Business", R.drawable.feed_bg));
-        menuItems.add(new MenuItem("Sports", R.drawable.message_bg));
-        menuItems.add(new MenuItem("Technology", R.drawable.music_bg));
-        menuItems.add(new MenuItem("Health", R.drawable.music_bg));
-        menuItems.add(new MenuItem("Our Sources", R.drawable.music_bg));
+        menuItems.add(new MenuItem("Business", R.drawable.bussiness));
+        menuItems.add(new MenuItem("Sports", R.drawable.sports));
+        menuItems.add(new MenuItem("Technology", R.drawable.technology));
+        menuItems.add(new MenuItem("Health", R.drawable.health));
+        menuItems.add(new MenuItem("Our Sources", R.drawable.source));
         sNavigationDrawer.setMenuItemList(menuItems);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NewsFragment()).addToBackStack(null).commit();
         sNavigationDrawer.setOnMenuItemClickListener(new SNavigationDrawer.OnMenuItemClickListener() {
@@ -53,12 +54,13 @@ public class NewsActivity extends AppCompatActivity {
                         break;
                     case 4:
                         selected = new HealthFragment();
+
                         break;
                     case 5:
                         selected = new SourcesFragment();
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selected).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selected).commit();
 
 
             }
@@ -89,6 +91,13 @@ public class NewsActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 }
